@@ -9,13 +9,13 @@ app.listen((process.env.PORT || 5000));
 
 // Server index page
 
-app.get("/", function (req,res) => {
+app.get("/", function (req,res){
   res.send("Deployed!");
 });
 
 //Facebook Webhook
 //Used for verification
-app.get("/webhook", function (req, res) => {
+app.get("/webhook", function (req, res){
   if (req.query["hub.verify_token"] === "this_is_my_token") {
     console.log("Verifyed webhook");
     res.status(200).send(req.query["hub.challenge"]);
